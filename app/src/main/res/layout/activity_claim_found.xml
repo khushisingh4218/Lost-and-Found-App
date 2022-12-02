@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Claim_Found">
+
+    <EditText
+        android:id="@+id/claim_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Your Name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/claim_email" />
+
+    <EditText
+        android:id="@+id/claim_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/claim_contact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Contact No."
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/claim_name" />
+
+    <Button
+        android:id="@+id/claim_submit_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Claim Now"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/claim_contact" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
