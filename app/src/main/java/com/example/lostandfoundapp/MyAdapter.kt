@@ -1,14 +1,21 @@
 package com.example.lostandfoundapp
 
+import android.app.Activity
+import android.content.ContentValues
+import android.content.Intent
 import android.location.Location
+import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import org.w3c.dom.Text
 
-class MyAdapter(private val userList : ArrayList<data_lost>) : RecyclerView.Adapter<MyAdapter.MyViewHolder> (){
+class MyAdapter(private val context: Lost_list, private val userList : ArrayList<data_lost>) : RecyclerView.Adapter<MyAdapter.MyViewHolder> (){
 
 
     override fun getItemCount(): Int {
@@ -16,7 +23,8 @@ class MyAdapter(private val userList : ArrayList<data_lost>) : RecyclerView.Adap
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-      val itemView = LayoutInflater.from(parent.context).inflate(R.layout.items_list, parent,false )
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.items_list, parent,false)
+
         return MyViewHolder(itemView)
     }
 
@@ -26,18 +34,34 @@ class MyAdapter(private val userList : ArrayList<data_lost>) : RecyclerView.Adap
         holder.Description.text=user.Description
         holder.Location.text=user.Location
         holder.Date.text=user.Date
-        holder.Name.text=user.Name
-        holder.Contact.text=user.Contact
-        holder.Email.text=user.Email
+        holder.claimButton.setOnClickListener{
+
+            val bundle = Bundle()
+            bundle.putString("name","Khushi Singh")
+            val USERNAME:String? = context.USERNAME
+            Log.d(ContentValues.TAG, "adapter user is ${USERNAME}")
+            bundle.putString("USERNAME", USERNAME)
+            bundle.putString("ITEM",user.Item.toString())
+            bundle.putString("DATE", user.Date.toString())
+            context.finish()
+
+            val newIntent = Intent(context, Claim_Found::class.java)
+            newIntent.putExtra("bundle",bundle)
+            startActivity(context, newIntent,bundle)
+            context.recreate()
+
+
+
+
+        }
+
     }
 
-        public class MyViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
+    public class MyViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
         val Item: TextView = itemView.findViewById(R.id.lost_item)
-         val Description: TextView=itemView.findViewById(R.id.lost_desc)
-            val Location: TextView=itemView.findViewById(R.id.lost_loc)
-            val Date: TextView=itemView.findViewById(R.id.lost_date)
-            val Name: TextView=itemView.findViewById(R.id.lost_name)
-            val Contact: TextView=itemView.findViewById(R.id.lost_mob)
-            val Email: TextView=itemView.findViewById(R.id.lost_email)
-        }
+        val Description: TextView=itemView.findViewById(R.id.lost_desc)
+        val Location: TextView=itemView.findViewById(R.id.lost_loc)
+        val Date: TextView=itemView.findViewById(R.id.lost_date)
+        val claimButton: Button = itemView.findViewById(R.id.claim)
+    }
 }

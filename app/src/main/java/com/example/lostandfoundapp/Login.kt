@@ -1,8 +1,10 @@
 package com.example.lostandfoundapp
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -43,8 +45,10 @@ class Login : AppCompatActivity() {
                             {
                                 val username_pass = usern.getText().toString()
                                 val newIntent = Intent(this, HomeActivity::class.java)
-
                                 newIntent.putExtra("USERNAME", username_pass)
+                                newIntent.putExtra("PASSWORD", passw.getText().toString())
+                                Log.d(TAG,"username_pass is ${username_pass}")
+
                                 startActivity(newIntent)
 
 
@@ -62,5 +66,5 @@ class Login : AppCompatActivity() {
                     }
                 }
 
-    }
-}}
+        }
+    }}

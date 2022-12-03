@@ -3,8 +3,10 @@ package com.example.lostandfoundapp
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import org.checkerframework.checker.index.qual.GTENegativeOne
 
 class MyAdapter2 (private val userList : ArrayList<data_found>) : RecyclerView.Adapter<MyAdapter2.MyViewHolder2> (){
 
@@ -24,9 +26,7 @@ class MyAdapter2 (private val userList : ArrayList<data_found>) : RecyclerView.A
         holder.Description.text=user.Description
         holder.Location.text=user.Location
         holder.Date.text=user.Date
-        holder.Name.text=user.Name
-        holder.Contact.text=user.Contact
-        holder.Email.text=user.Email
+        holder.clmbut.visibility = View.GONE
     }
 
     public class MyViewHolder2(itemView : View) : RecyclerView.ViewHolder(itemView) {
@@ -34,8 +34,6 @@ class MyAdapter2 (private val userList : ArrayList<data_found>) : RecyclerView.A
         val Description: TextView=itemView.findViewById(R.id.lost_desc)
         val Location: TextView=itemView.findViewById(R.id.lost_loc)
         val Date: TextView=itemView.findViewById(R.id.lost_date)
-        val Name: TextView=itemView.findViewById(R.id.lost_name)
-        val Contact: TextView=itemView.findViewById(R.id.lost_mob)
-        val Email: TextView=itemView.findViewById(R.id.lost_email)
+        val clmbut: Button = itemView.findViewById(R.id.claim)
     }
 }

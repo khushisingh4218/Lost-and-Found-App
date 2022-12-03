@@ -30,6 +30,10 @@ class Lost : AppCompatActivity() {
 //            lost_item.get()
 //
 //        }
+        findViewById<Button>(R.id.buttonLoadPicture).setOnClickListener {
+            val intent =Intent(this,StorageActivity::class.java)
+            startActivity(intent)
+        }
 
         findViewById<Button>(R.id.lost_submit).setOnClickListener{
             val item=hashMapOf(
@@ -37,7 +41,8 @@ class Lost : AppCompatActivity() {
                 "Description" to lost_description.getText().toString(),
                 "Location" to lost_location.getText().toString(),
                 "Date" to lost_date.getText().toString(),
-                "Email" to USERNAME.toString()
+                "Email" to USERNAME.toString(),
+                "Settled" to "False"
             )
             db_lost.collection("lost")
                 .add(item)

@@ -1,17 +1,22 @@
 package com.example.lostandfoundapp
 
+import android.content.ContentValues
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 
 class HomeActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
         var newintent = getIntent()
         val USERNAME = newintent.getStringExtra("USERNAME").toString()
+        val PASSWORD = newintent.getStringExtra("PASSWORD").toString()
+        Log.d(ContentValues.TAG,"HOME USERNAME is ${USERNAME}")
 
         findViewById<Button>(R.id.found).setOnClickListener {
             val foundIntent= Intent(this,Found::class.java)
@@ -29,6 +34,7 @@ class HomeActivity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.lost_list).setOnClickListener {
             val lostList= Intent(this,Lost_list::class.java)
+            lostList.putExtra("USERNAME", USERNAME)
             startActivity(lostList)
         }
         findViewById<Button>(R.id.my_post).setOnClickListener {
@@ -36,8 +42,13 @@ class HomeActivity : AppCompatActivity() {
             feed.putExtra("USERNAME",USERNAME)
             startActivity(feed)
         }
+
         findViewById<Button>(R.id.update_pwd).setOnClickListener {
+
+
             val pwdUpdate= Intent(this,UpdatePassword::class.java)
+            pwdUpdate.putExtra("USERNAME",USERNAME)
+            pwdUpdate.putExtra("PASSWORD",PASSWORD)
             startActivity(pwdUpdate)
         }
     }

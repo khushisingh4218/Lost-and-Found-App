@@ -109,7 +109,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="01/01/2000"
+                android:text="02/12/2022"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
@@ -134,7 +134,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="01/01/2000"
+                android:text="Khushi Singh"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
@@ -159,7 +159,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="01/01/2000"
+                android:text="khushi_2101cs37@iitp.ac.in"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
@@ -184,7 +184,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="01/01/2000"
+                android:text="9876543210"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
@@ -192,7 +192,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Claim"
+            android:text="Status"
             android:id="@+id/claim"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
