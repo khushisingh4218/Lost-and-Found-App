@@ -1,6 +1,7 @@
 package com.example.lostandfoundapp
 
 import android.content.ContentValues
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -38,6 +39,10 @@ class Found : AppCompatActivity() {
                     Log.w(ContentValues.TAG, "Error adding document", e)
                 }
 
+        }
+        findViewById<Button>(R.id.buttonLoadPicture).setOnClickListener {
+            val intent =Intent(this,storage2::class.java)
+            startActivity(intent)
         }
 
     }}
